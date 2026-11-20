@@ -33,7 +33,7 @@ footer {
 
 /* booking bar */
 .footer-booking {
-  padding: 48px 24px 0;
+  padding: 32px 20px;
 }
 
 .booking-bar {
@@ -41,7 +41,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  padding: 24px;
+  padding: 12px 16px 24px;
   background: var(--footer-dark);
   color: #fff;
 }
@@ -138,7 +138,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 48px 24px;
+  padding: 32px 20px;
   text-align: center;
 
   h2 {
@@ -150,13 +150,14 @@ footer {
   > p:first-of-type {
     max-width: 676px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 30px;
   }
 
   ul {
     display: flex;
-    justify-content: center;
-    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
     margin-block: 40px;
   }
 
@@ -165,7 +166,6 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    max-width: 123px;
     font-weight: 500;
 
     img {
@@ -174,15 +174,21 @@ footer {
     }
   }
 
+  > p:last-child {
+    align-self: stretch;
+  }
+
   a:last-child {
-    display: inline-block;
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 
 /* brand logos */
 .footer-brands {
   margin-block-start: 24px;
-  padding: 32px 16px 64px;
+  padding: 36px 48px;
   border-block-start: 1px solid rgb(191 191 191 / 25%);
 }
 
@@ -196,7 +202,6 @@ footer {
 
   > h3 {
     margin-block: 16px 4px;
-    font-family: inherit;
     font-size: 9px;
     font-weight: 600;
     line-height: 16px;
@@ -209,10 +214,10 @@ footer {
   }
 
   > ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 16px 8px;
 
     a {
       display: flex;
@@ -249,6 +254,11 @@ footer {
   }
 }
 
+/* tier labels use the body face, not the site heading face */
+body .brands-frame > h3 {
+  font-family: var(--font-family);
+}
+
 /* dark band */
 .footer-band {
   background: var(--footer-dark);
@@ -267,7 +277,8 @@ footer {
 .footer-band-inner {
   max-width: 944px;
   margin-inline: auto;
-  padding: 24px;
+  padding: 32px 20px;
+  text-align: center;
 }
 
 .footer-sites {
@@ -290,8 +301,8 @@ footer {
 
 .footer-about {
   display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 0 16px;
+  justify-items: center;
+  gap: 16px;
   padding-block: 16px;
 
   > p:first-child img {
@@ -300,23 +311,17 @@ footer {
   }
 
   > p:nth-child(2) {
-    margin-block-end: 16px;
     color: #e8e8e8;
   }
 
-  > p:nth-child(3),
-  > ul {
-    grid-column: 1 / -1;
-  }
-
   > p:nth-child(3) {
-    margin-block-end: 8px;
     color: var(--footer-light);
     font-weight: 900;
   }
 
   > ul {
     display: flex;
+    justify-content: center;
     gap: 16px;
 
     a:hover {
@@ -337,7 +342,8 @@ footer {
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px 24px;
+    justify-content: center;
+    gap: 16px;
   }
 
   li[hidden] {
@@ -362,6 +368,24 @@ footer {
 }
 
 @media (width >= 900px) {
+  .footer-booking {
+    padding: 48px 24px 0;
+  }
+
+  .footer-band-inner {
+    padding: 24px;
+    text-align: start;
+  }
+
+  .footer-legal ul {
+    justify-content: start;
+    gap: 16px 24px;
+  }
+
+  .footer-about > ul {
+    justify-content: end;
+  }
+
   .booking-bar {
     flex-direction: row;
     justify-content: center;
@@ -405,11 +429,23 @@ footer {
     }
 
     ul {
-      gap: 32px;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     li {
       width: 123px;
+    }
+
+    > p:last-child {
+      align-self: center;
+    }
+
+    a:last-child {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 
@@ -419,11 +455,23 @@ footer {
 
   .brands-frame {
     padding-inline: 20px;
+
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 20px;
+    }
   }
 
   .footer-about {
     grid-template-columns: 32px minmax(0, 576px) 1fr;
-    align-items: start;
+    place-items: start start;
+    gap: 0 16px;
+
+    > p:nth-child(2) {
+      margin-block-end: 16px;
+    }
 
     > p:nth-child(3),
     > ul {
