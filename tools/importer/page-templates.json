@@ -1,0 +1,118 @@
+{
+  "templates": [
+    {
+      "name": "travel-quiz",
+      "urls": [
+        "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/"
+      ],
+      "representativeUrl": "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/",
+      "description": "Travel quiz articles: breadcrumb, article hero, intro copy with an embedded Riddle quiz, Where to Stay hotel slider and related articles.",
+      "blocks": [
+        {
+          "name": "columns-breadcrumb",
+          "instances": [
+            ".custom-breadcrumb"
+          ]
+        },
+        {
+          "name": "embed-riddle",
+          "instances": [
+            "section.riddle-quiz",
+            ".riddle2-wrapper"
+          ]
+        },
+        {
+          "name": "cards-hotel-slider",
+          "instances": [
+            ".stay__cards"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".related-articles__items"
+          ]
+        }
+      ],
+      "urlPattern": "/travel-quiz/*",
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "Breadcrumb",
+          "selector": [
+            ".custom-breadcrumb"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-breadcrumb"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "Article hero",
+          "selector": [
+            "section.article-hero"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".article-hero__category",
+            ".article-hero__title",
+            ".article-hero__author",
+            ".article-hero__img",
+            ".article-hero__imgdesc"
+          ]
+        },
+        {
+          "id": "rc3c1",
+          "name": "Article intro and quiz",
+          "selector": [
+            ".post-content.article-data"
+          ],
+          "style": null,
+          "blocks": [
+            "embed-riddle"
+          ],
+          "defaultContent": [
+            ".post-content.article-data > p"
+          ]
+        },
+        {
+          "id": "rc3c2",
+          "name": "Where to Stay",
+          "selector": [
+            "aside.stay",
+            ".wp-block-traveler-fse-blocks-highlight.stay"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-hotel-slider"
+          ],
+          "defaultContent": [
+            ".stay__heading",
+            ".stay__title",
+            ".stay__button"
+          ]
+        },
+        {
+          "id": "rc3c3",
+          "name": "Related Articles",
+          "selector": [
+            "section.related-articles"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            ".related-articles__heading"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

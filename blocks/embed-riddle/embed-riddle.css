@@ -1,0 +1,18 @@
+.embed-riddle {
+  width: 640px;
+  max-width: 100%;
+  margin: 46px auto 8px;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 391px;
+    border: 0;
+  }
+
+  @media (width >= 900px) {
+    iframe {
+      height: 532px;
+    }
+  }
+}

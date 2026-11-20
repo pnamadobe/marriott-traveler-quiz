@@ -1,0 +1,19 @@
+{
+  "variantName": "embed-riddle",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Embeds a third-party Riddle.com quiz in the article column",
+    "layout": "full-width iframe, lazy loaded, height follows Riddle resize messages (600px minimum)",
+    "source": "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/"
+  },
+  "contentPattern": {
+    "structure": "one row, one cell holding a link to the Riddle embed URL (https://www.riddle.com/embed/a/<id>); link text, when not a URL, becomes the iframe title",
+    "rows": 1,
+    "cellsPerRow": 1
+  },
+  "usage": "Travel quiz pages, after the intro paragraphs.",
+  "reuseGuidance": "Use for any Riddle.com quiz or poll. Links to other hosts are left as plain links. Height auto-sizes only from postMessage events sent by riddle.com origins.",
+  "options": [],
+  "memberVariantIds": []
+}

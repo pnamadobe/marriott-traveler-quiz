@@ -1,0 +1,19 @@
+{
+  "variantName": "cards-hotel-slider",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Horizontally sliding list of featured hotels under a Where to Stay heading",
+    "layout": "item count label, scroll-snap track (1/2/3 visible by viewport), prev/next arrows, page dots; image links to the same hotel URL as the name",
+    "source": "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/"
+  },
+  "contentPattern": {
+    "structure": "one row per hotel; cell 1 is the hotel image, cell 2 is a paragraph with the hotel name linked to its page",
+    "rows": "one per hotel",
+    "cellsPerRow": 2
+  },
+  "usage": "Where to Stay section of travel articles and quizzes; heading, subtitle and Explore More Hotels button stay as default content around it.",
+  "reuseGuidance": "Use for any linked image carousel of hotels. The \"N Hotels\" label is computed from the row count.",
+  "options": [],
+  "memberVariantIds": []
+}

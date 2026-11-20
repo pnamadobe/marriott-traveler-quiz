@@ -1,0 +1,49 @@
+.columns-breadcrumb {
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 8px 0 8px 16px;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 4px 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+
+  li + li::before {
+    content: '';
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin-inline: 4px 8px;
+    background-color: #4f4f4f;
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.6 12 8 7.4 9.4 6l6 6-6 6L8 16.6z"/></svg>') center / contain no-repeat;
+  }
+
+  a {
+    display: block;
+    color: var(--color-link);
+
+    &:hover {
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  @media (width >= 900px) {
+    ol {
+      padding: 32px 0 16px 30px;
+    }
+
+    li + li::before {
+      margin-inline: 0;
+    }
+  }
+}

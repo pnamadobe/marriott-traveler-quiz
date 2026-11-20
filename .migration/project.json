@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "marriott-traveler-quiz": {
+      "previewOrg": "pnamadobe",
+      "previewSite": "marriott-traveler-quiz",
+      "contentHostUrl": "https://content.da.live/pnamadobe/marriott-traveler-quiz/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

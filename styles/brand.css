@@ -1,0 +1,47 @@
+:root {
+  /* fonts */
+  --brand-font-body: swiss721, "Helvetica Neue", helvetica, arial, sans-serif;
+  --brand-font-heading: aldine721, georgia, "Times New Roman", serif;
+
+  /* colors */
+  --brand-background: #f9f6f4;
+  --brand-text: #1c1c1c;
+  --brand-link: #1c1c1c;
+  --brand-link-hover: #0a58ca;
+  --brand-muted: #979797;
+  --brand-rule: #bfbfbf;
+
+  /* layout */
+  --brand-article-width: 672px;
+  --brand-hero-text-width: 900px;
+  --brand-section-padding: 32px;
+  --brand-nav-height: 69px;
+
+  /* headings (mobile first) */
+  --brand-heading-xxl: 36px;
+  --brand-heading-xxl-line: 40px;
+  --brand-heading-l: 32px;
+  --brand-heading-l-line: 40px;
+  --brand-heading-letter-spacing: -0.5px;
+
+  /* body */
+  --brand-body-size: 16px;
+  --brand-body-line: 30px;
+  --brand-lead-size: 20px;
+  --brand-lead-line: 28px;
+}
+
+@media (width >= 900px) {
+  :root {
+    --brand-heading-xxl: 56px;
+    --brand-heading-xxl-line: 67.2px;
+    --brand-heading-l: 40px;
+    --brand-heading-l-line: 48px;
+    --brand-body-size: 18px;
+    --brand-body-line: 28px;
+    --brand-lead-size: 28px;
+    --brand-lead-line: 36px;
+    --brand-section-padding: 48px;
+    --brand-nav-height: 74px;
+  }
+}

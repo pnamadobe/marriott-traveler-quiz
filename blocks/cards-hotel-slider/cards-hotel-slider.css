@@ -1,0 +1,152 @@
+.cards-hotel-slider {
+  --track-width: 90.8;
+  --arrow-width: 27px;
+  --slide-gap: 20px;
+  --slide-peek: 64px;
+
+  container-type: inline-size;
+  text-align: start;
+
+  .count {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #4f4f4f;
+  }
+
+  .track {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .slide {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .slide-image {
+    a,
+    picture {
+      display: block;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+
+  .slide-body {
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      display: block;
+      font-size: 20px;
+      line-height: 28px;
+      color: var(--color-text);
+    }
+  }
+
+  .prev,
+  .next {
+    display: none;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+
+    &::before {
+      content: '';
+      display: block;
+      width: var(--arrow-width);
+      height: 8px;
+      background-color: currentcolor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 8'%3E%3Cpath d='M0.890348 3.64644C0.695086 3.8417 0.695085 4.15829 0.890348 4.35355L4.07233 7.53553C4.26759 7.73079 4.58417 7.73079 4.77944 7.53553C4.9747 7.34027 4.9747 7.02369 4.77944 6.82842L1.95101 4L4.77944 1.17157C4.9747 0.976307 4.9747 0.659724 4.77944 0.464462C4.58417 0.2692 4.26759 0.2692 4.07233 0.464462L0.890348 3.64644ZM27 3.5L1.2439 3.5L1.2439 4.5L27 4.5L27 3.5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  .next::before {
+    scale: -1 1;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-block-start: 32px;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 16px;
+    background-color: #d9d9d9;
+    transition: background-color 500ms ease-out;
+
+    &[aria-current='true'] {
+      background-color: var(--color-text);
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .cards-hotel-slider {
+    .count {
+      margin-inline: calc((100 - var(--track-width)) * 0.5%);
+    }
+
+    .viewport {
+      display: grid;
+      grid-template-columns: var(--arrow-width) calc(var(--track-width) * 1%) var(--arrow-width);
+      justify-content: space-between;
+    }
+
+    .track {
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - var(--slide-peek) - 2 * var(--slide-gap)) / 3);
+      gap: var(--slide-gap);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .slide {
+      gap: 24px;
+      scroll-snap-align: start;
+    }
+
+    /* arrow box spans count + image so the arrow sits where the source centers it */
+    .prev,
+    .next {
+      display: grid;
+      place-items: center;
+      align-self: start;
+      height: calc(24px + (var(--track-width) * 1cqi - var(--slide-peek) - 2 * var(--slide-gap)) * 2 / 9);
+      margin-block-start: -24px;
+    }
+  }
+}

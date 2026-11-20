@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Aldine721";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://traveler.marriott.com/wp-content/themes/traveler-fse/assets/fonts/Aldine721/AldineforMarriott-Lt.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Aldine721";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://traveler.marriott.com/wp-content/themes/traveler-fse/assets/fonts/Aldine721/AldineforMarriott.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Swiss721";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://traveler.marriott.com/wp-content/themes/traveler-fse/assets/fonts/Swiss721/Swiss_Regular/Swiss721BT-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Swiss721";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://traveler.marriott.com/wp-content/themes/traveler-fse/assets/fonts/Swiss721/Swiss_Medium/Swiss721BT-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Swiss721";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://traveler.marriott.com/wp-content/themes/traveler-fse/assets/fonts/Swiss721/Swiss_Bold/Swiss721BT-Bold.woff2") format("woff2");
+}

@@ -1,0 +1,19 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Related article cards at the end of an article",
+    "layout": "responsive grid, up to 4 across; landscape image, uppercase category link, title link",
+    "source": "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/"
+  },
+  "contentPattern": {
+    "structure": "one row per article; cell 1 is the image (optionally linked to the article), cell 2 holds a category link paragraph followed by a title link paragraph",
+    "rows": "one per article",
+    "cellsPerRow": 2
+  },
+  "usage": "Related Articles section below the main article content.",
+  "reuseGuidance": "Use for any list of linked article teasers. With one paragraph in the text cell it is treated as the title.",
+  "options": [],
+  "memberVariantIds": []
+}
