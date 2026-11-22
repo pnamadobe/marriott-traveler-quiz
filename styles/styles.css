@@ -291,7 +291,7 @@ a {
 
   &.centered,
   &:has(h1),
-  &:has(h3) {
+  &:has(> .default-content h3) {
     text-align: center;
   }
 
@@ -376,14 +376,14 @@ a {
   }
 
   /* bounded editorial modules (Where to Stay, Related Articles) */
-  &:has(h3) {
+  &:has(> .default-content h3) {
     padding-block: var(--brand-section-padding);
 
-    h3 {
+    > .default-content h3 {
       margin-block-end: 16px;
     }
 
-    h3 + p {
+    > .default-content h3 + p {
       margin-block-end: 24px;
     }
 

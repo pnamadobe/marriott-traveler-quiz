@@ -2,14 +2,14 @@
   "status": "success",
   "url": "https://traveler.marriott.com/travel-quiz/quiz-where-to-travel-next-year/",
   "path": "travel-quiz/quiz-where-to-travel-next-year",
-  "timestamp": "2026-11-20T21:14:05.070Z",
+  "timestamp": "2026-11-22T04:49:07.665Z",
   "title": "Quiz: Where to Travel Next? | Marriott Bonvoy Traveler",
   "template": "travel-quiz",
   "blocks": [
     "columns-breadcrumb",
-    "embed-riddle",
+    "quiz",
     "cards-hotel-slider",
     "cards-article"
   ],
-  "importScript": "76a72883bab5"
+  "importScript": "74ed55b9e39b"
 }

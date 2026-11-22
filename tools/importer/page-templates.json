@@ -15,7 +15,7 @@
           ]
         },
         {
-          "name": "embed-riddle",
+          "name": "quiz",
           "instances": [
             "section.riddle-quiz",
             ".riddle2-wrapper"
@@ -72,7 +72,7 @@
           ],
           "style": null,
           "blocks": [
-            "embed-riddle"
+            "quiz"
           ],
           "defaultContent": [
             ".post-content.article-data > p"

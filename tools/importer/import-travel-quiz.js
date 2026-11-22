@@ -4,7 +4,7 @@
 import cardsArticleParser from './parsers/cards-article.js';
 import cardsHotelSliderParser from './parsers/cards-hotel-slider.js';
 import columnsBreadcrumbParser from './parsers/columns-breadcrumb.js';
-import embedRiddleParser from './parsers/embed-riddle.js';
+import quizParser from './parsers/quiz.js';
 import cleanupTransformer from './transformers/marriott-cleanup.js';
 import sectionsTransformer from './transformers/marriott-sections.js';
 
@@ -23,7 +23,7 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
-      "name": "embed-riddle",
+      "name": "quiz",
       "instances": [
         "section.riddle-quiz",
         ".riddle2-wrapper"
@@ -80,7 +80,7 @@ const PAGE_TEMPLATE = {
       ],
       "style": null,
       "blocks": [
-        "embed-riddle"
+        "quiz"
       ],
       "defaultContent": [
         ".post-content.article-data > p"
@@ -122,7 +122,7 @@ const PAGE_TEMPLATE = {
 
 const parsers = {
   'columns-breadcrumb': columnsBreadcrumbParser,
-  'embed-riddle': embedRiddleParser,
+  'quiz': quizParser,
   'cards-hotel-slider': cardsHotelSliderParser,
   'cards-article': cardsArticleParser,
 };
