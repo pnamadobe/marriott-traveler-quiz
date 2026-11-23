@@ -1,3 +1,5 @@
+import { getConfig } from '../../scripts/ak.js';
+
 const SHARE = {
   facebook: (u) => `https://www.facebook.com/sharer/sharer.php?u=${u}`,
   x: (u, t) => `https://x.com/intent/post?url=${u}&text=${t}`,
@@ -44,7 +46,7 @@ function shuffled(n) {
   return order;
 }
 
-function parse(block) {
+export function parse(block) {
   const quiz = { questions: [], results: [] };
   const shuffle = block.classList.contains('shuffle');
   [...block.children].forEach((row) => {
@@ -78,18 +80,30 @@ function parse(block) {
 }
 
 // Each selected answer adds a point to every result it names; ties go to the earlier result.
-export function score(quiz, selections) {
+const resultName = (r) => r.match(/^(.*?)\s*(?:\((\d+)\))?$/);
+
+// Answer results that match no result heading score nothing; name them so authors can fix them.
+function unknownResults(quiz) {
+  const titles = new Set(quiz.results.map((r) => r.title.toLowerCase()));
+  return quiz.questions.flatMap((q) => q.answers.flatMap((a) => a.results))
+    .filter((r) => !titles.has(resultName(r)[1].toLowerCase()));
+}
+
+// The result with the most points wins; a tie picks one of the tied results at random.
+export function score(quiz, selections, random = Math.random) {
   const totals = quiz.results.map(() => 0);
   const key = (t) => t.toLowerCase();
   const index = new Map(quiz.results.map((r, i) => [key(r.title), i]));
   selections.forEach((picked, q) => picked.forEach((a) => {
     // "Result title (2)" weighs that answer double toward the result
     quiz.questions[q].answers[a].results.forEach((r) => {
-      const [, name, points] = r.match(/^(.*?)\s*(?:\((\d+)\))?$/);
+      const [, name, points] = resultName(r);
       if (index.has(key(name))) totals[index.get(key(name))] += Number(points || 1);
     });
   }));
-  return totals.indexOf(Math.max(...totals));
+  const top = Math.max(...totals);
+  const tied = totals.flatMap((t, i) => (t === top ? [i] : []));
+  return tied[Math.floor(random() * tied.length)];
 }
 
 function mediaFigure(media, step, total) {
@@ -130,6 +144,8 @@ function shareRow(title) {
 export default function init(el) {
   const quiz = parse(el);
   if (!quiz.intro || !quiz.questions.length || !quiz.results.length) return;
+  const unknown = unknownResults(quiz);
+  if (unknown.length) getConfig().log(`Quiz answers name unknown results: ${unknown.join(', ')}`, el);
   const total = quiz.questions.length + 1;
   const selections = quiz.questions.map(() => []);
 

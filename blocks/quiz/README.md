@@ -20,7 +20,7 @@ matter).
 
 Every selected answer adds a point to each result it names; add a number in parentheses to
 weigh it more, e.g. `Take a Slower Vacation (3)` adds three points. The result with the most points
-wins; a tie goes to the result that comes first in the table.
+wins; a tie picks one of the tied results at random, so every quiz ends on a result.
 
 A question allows several answers when its hint paragraph contains a number, e.g.
 "Choose up to 2".

@@ -1,5 +1,6 @@
 import { expect } from '@esm-bundle/chai';
-import init from '../../blocks/quiz/quiz.js';
+import init, { score } from '../../blocks/quiz/quiz.js';
+import { setConfig } from '../../scripts/ak.js';
 
 const row = (type, media, content) => `<div><div>${type}</div><div>${media}</div><div>${content}</div></div>`;
 const QUIZ = [
@@ -119,13 +120,44 @@ describe('quiz', () => {
     expect(el.querySelector('.quiz-result h3').textContent).to.equal('Slower');
   });
 
-  it('breaks a tie in favour of the earlier result', () => {
-    mount();
+  it('still ends on a result when no chosen answer scores', () => {
+    el = document.createElement('div');
+    el.className = 'quiz';
+    el.innerHTML = [
+      row('Intro', '', '<h2>Go</h2><p>Start</p>'),
+      row('Question', '', '<h3>Pick</h3><ul><li>A</li><li>B</li></ul>'),
+      row('Result', '', '<h3>First</h3>'),
+      row('Result', '', '<h3>Second</h3>'),
+    ].join('');
+    document.body.append(el);
+    init(el);
     next().click();
     answers()[1].click();
     next().click();
-    answers()[1].click();
-    next().click();
-    expect(el.querySelector('.quiz-result h3').textContent).to.equal('Slower');
+    expect(['First', 'Second']).to.include(el.querySelector('.quiz-result h3').textContent);
+  });
+
+  it('flags answers that name a result that does not exist', async () => {
+    const logged = [];
+    setConfig({ log: (msg) => logged.push(msg) });
+    el = document.createElement('div');
+    el.className = 'quiz';
+    el.innerHTML = QUIZ.replace('<li>Slower</li></ul></li><li>Fast', '<li>Slowr</li></ul></li><li>Fast');
+    document.body.append(el);
+    init(el);
+    setConfig({});
+    expect(logged.join(' ')).to.include('Slowr');
+    expect(el.querySelector('.quiz-card')).to.exist;
+  });
+
+  it('breaks a tie at random among the tied results only', () => {
+    const quiz = {
+      questions: [{ answers: [{ results: ['A'] }, { results: ['B'] }] }],
+      results: [{ title: 'A' }, { title: 'B' }, { title: 'C' }],
+    };
+    const both = [[0, 1]];
+    expect(score(quiz, both, () => 0)).to.equal(0);
+    expect(score(quiz, both, () => 0.99)).to.equal(1);
+    expect(score(quiz, [[0]], () => 0.99)).to.equal(0);
   });
 });
